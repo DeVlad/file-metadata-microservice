@@ -2,6 +2,7 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 8000;
 var fileUpload = require('express-fileupload');
+var fs = require("fs");
 
 app.use(express.static('public'));
 app.use(fileUpload({
@@ -29,7 +30,9 @@ app.post('/upload', function (req, res) {
         if (err) {
             return res.status(500).send(err);
         }
-        res.send('File uploaded!');
+        var stats = fs.statSync('./public/uploads/' + name);
+        var size = stats.size;
+        res.send(`{ "filesize": "${size}" }`);
     });
 });
 
@@ -46,7 +49,7 @@ app.use(function (err, req, res, next) {
         err.status = err.statusCode = 400;
         return res.send('Error: ' + err.status + '<br>' + err.message);
     } else {
-        // TODO: More errors...
+        // More errors...
     }
     next();
 });
