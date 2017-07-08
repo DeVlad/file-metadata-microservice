@@ -1,0 +1,26 @@
+{
+  "name": "file-metadata-microservice",
+  "version": "1.0.0",
+  "description": "Return uploaded file size in JSON format",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deyan Vladkov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeVlad/filemetadata-microservice.git"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-fileupload": "^0.1.4"
+  },
+  "engines": {
+    "node": "^6.10.3"
+  },
+  "bugs": {
+    "url": "https://github.com/DeVlad/filemetadata-microservice/issues"
+  },
+  "homepage": "https://github.com/DeVlad/filemetadata-microservice#readme"
+}
